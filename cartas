@@ -1,0 +1,24 @@
+const fs = require("fs")
+
+fs.readFile("cartas.txt", (err, data) => {
+if (err) {
+    return console.log(err)
+    }
+    let texto = data.toString()
+    let listaCarta = texto.split('---')
+
+    for (i=0; i<listaCarta.length; i++) {
+        let listaMsg = ((listaCarta[i].trim()).split('\n'))
+
+        let remetente = listaMsg[0]
+        let destinatario = listaMsg[1]
+        let mensagem = listaMsg[2]
+
+        console.log("[INICIO DA MENSAGEM]")
+        console.log("Remetente: "+remetente)
+        console.log("Destinatario: "+destinatario)
+        console.log("Mensagem: "+mensagem)
+        console.log("[FIM DA MENSAGEM]")
+        console.log("")
+    }
+})
